@@ -1,0 +1,14 @@
+version: '3'
+services:
+  laravel-source-code-analysis:
+    container_name: laravel-source-code-analysis
+    build: docker
+    volumes:
+      - $HOME:/root/.ssh
+      - ./:/data/app/project/
+    environment:
+      TZ: Asia/Shanghai
+    command: bash -c "/home/root/run.sh"
+    ports:
+      - "8833:80"
+      - "8822:22"

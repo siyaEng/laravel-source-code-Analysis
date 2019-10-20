@@ -1,0 +1,10 @@
+FROM siya/ubuntu16.04-tool
+COPY env_dev /home/root/env_dev
+COPY run.sh /home/root/run.sh
+COPY php.ini /usr/local/etc/php/conf.d/
+COPY cronfile /etc/cron.d/cronfile
+COPY site.conf /etc/nginx/sites-enabled/default
+RUN mkdir -p /data/logs/ /data/app/project/
+COPY supervisor.conf /etc/supervisor/conf.d/default.conf
+ENV TZ=Asia/Shanghai
+WORKDIR /data/app/project
